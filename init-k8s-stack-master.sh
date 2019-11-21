@@ -21,6 +21,9 @@ sed -i "s/${MASTER_IP} ${APISERVER_NAME}//g" /etc/hosts
 sed -i '${/^$/d}' /etc/hosts
 echo $OLD_HOST_CONFIG >>/etc/hosts
 
+K8S_PATH=/root/k8s
+mkdir -p $K8S_PATH
+cd $K8S_PATH
 # 配置软件kubeadm
 kubeadm config print init-defaults >kubeadm-init-k8s-${K8S_VERISON}.yaml
 #cat --number kubeadm-init-k8s-${K8S_VERISON}.yaml
